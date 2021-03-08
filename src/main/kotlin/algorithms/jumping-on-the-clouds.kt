@@ -2,7 +2,7 @@ package algorithms
 
 import java.util.Scanner
 
-//https://www.hackerrank.com/challenges/jumping-on-the-clouds/submissions/code/201932703
+//https://www.hackerrank.com/challenges/jumping-on-the-clouds/
 
 /**
  * Input (stdin)
