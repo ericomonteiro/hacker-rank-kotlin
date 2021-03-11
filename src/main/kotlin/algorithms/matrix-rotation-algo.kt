@@ -7,8 +7,9 @@ fun matrixRotation(matrix: Array<Array<Int>>, r: Int): Unit {
     val matrixAsLines = mutableListOf<MutableList<Int>>()
     var endRow: Int
     var endColumn: Int
+    val quantitySubMatrix = Integer.min(matrix.size, matrix[0].size) / 2
 
-    for (i in 0 until Integer.min(matrix.size, matrix[0].size) / 2) {
+    for (i in 0 until quantitySubMatrix) {
         endRow = (matrix.size - 1) - i
         endColumn = (matrix[0].size - 1) - i
 
@@ -47,7 +48,7 @@ fun matrixRotation(matrix: Array<Array<Int>>, r: Int): Unit {
     val rotatedFlat = matrixAsLines.flatten()
     var countReplaces = 0
 
-    for (i in 0 until Integer.min(matrix.size, matrix[0].size) / 2) {
+    for (i in 0 until quantitySubMatrix) {
         endRow = (matrix.size - 1) - i
         endColumn = (matrix[0].size - 1) - i
 
@@ -104,5 +105,5 @@ fun main(args: Array<String>) {
 //        arrayOf(12, 11, 10, 9, 8)
 //    )
 
-    matrixRotation(matrix, 1024)
+    matrixRotation(matrix, 2)
 }
