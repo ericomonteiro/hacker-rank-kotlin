@@ -12,13 +12,13 @@ fun arrayManipulation(n: Int, queries: Array<Array<Int>>): Long {
     queries.forEach {
         for (i in it[0] - 1 until minOf(it[1], arrayResult.size)) {
             arrayResult[i] += it[2].toLong()
-            if (max < arrayResult[i]) max = arrayResult[i]
+            max = maxOf(arrayResult[i], max)
         }
 
         for (i in arrayResult.size until it[1]) {
             if (i >= it[0] - 1) {
                 arrayResult.add(it[2].toLong())
-                if (max < it[2]) max = it[2].toLong()
+                max = maxOf(arrayResult[i], it[2].toLong())
             } else {
                 arrayResult.add(0)
             }
