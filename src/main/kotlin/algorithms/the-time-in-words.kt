@@ -4,7 +4,7 @@ import java.util.Scanner
 
 //https://www.hackerrank.com/challenges/the-time-in-words/problem
 
-val englishNumber = mutableMapOf(
+val englishNumber = mapOf(
     1  to "one",
     2  to "two",
     3  to "three",
