@@ -1,5 +1,6 @@
 package algorithms
 
+import java.math.BigDecimal
 import java.util.Date
 
 //https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem
@@ -7,8 +8,38 @@ import java.util.Date
 // Complete the sherlockAndAnagrams function below.
 
 var cachedStrings = mutableMapOf<String, Int>()
-fun sherlockAndAnagrams(s: String): Int {
 
+val TEN = BigDecimal(10.0)
+val mapCharToTenPow = mapOf(
+    'a' to TEN.pow(1),
+    'b' to TEN.pow(2),
+    'c' to TEN.pow(3),
+    'd' to TEN.pow(4),
+    'e' to TEN.pow(5),
+    'f' to TEN.pow(6),
+    'g' to TEN.pow(7),
+    'h' to TEN.pow(8),
+    'i' to TEN.pow(9),
+    'j' to TEN.pow(10),
+    'k' to TEN.pow(11),
+    'l' to TEN.pow(12),
+    'm' to TEN.pow(13),
+    'n' to TEN.pow(14),
+    'o' to TEN.pow(15),
+    'p' to TEN.pow(16),
+    'q' to TEN.pow(17),
+    'r' to TEN.pow(18),
+    's' to TEN.pow(19),
+    't' to TEN.pow(20),
+    'u' to TEN.pow(21),
+    'v' to TEN.pow(22),
+    'w' to TEN.pow(23),
+    'x' to TEN.pow(24),
+    'y' to TEN.pow(25),
+    'z' to TEN.pow(26)
+)
+
+fun sherlockAndAnagrams(s: String): Int {
     if (cachedStrings[s] != null) {
         return cachedStrings[s]!!
     }
@@ -42,23 +73,28 @@ fun sherlockAndAnagrams(s: String): Int {
     return countAnagrams
 }
 
+
+
 fun String.isAnagram(s: String): Boolean {
-    val s1Array = this.toCharArray()
-    val s2Array = s.toCharArray()
+    val s1 = this.toCharArray()
+    val s2 = s.toCharArray()
 
-    val i1Array = s1Array.map { it.toInt() }
-    val i2Array = s2Array.map { it.toInt() }
-
-    return if (i1Array.sum() == i2Array.sum()) {
-        val sorted1 = s1Array.sorted()
-        val sorted2 = s2Array.sorted()
-        for (i in sorted1.indices) {
-            if (sorted1[i] != sorted2[i])
-                return false
-        }
-        return true
-    } else false
+    return anagramFirstCheck(s1, s2)  && anagramSecondCheck(s1, s2)
 }
+
+fun anagramFirstCheck(s1: CharArray, s2: CharArray) =
+    (s1.map {it.toInt()}.sum() == s2.map {it.toInt()}.sum())
+
+fun anagramSecondCheck(s1: CharArray, s2: CharArray): Boolean {
+    val s1DoubleArray = s1.map { mapCharToTenPow[it]!! }
+    val s2DoubleArray = s2.map {  mapCharToTenPow[it]!!  }
+
+    return (s1DoubleArray.fold(BigDecimal.ZERO, BigDecimal::add) == s2DoubleArray.fold(BigDecimal.ZERO, BigDecimal::add))
+}
+
+//simplest way to check if is anagram
+fun anagramThirdCheck(s1: CharArray, s2: CharArray) = (s1.sorted() == s2.sorted())
+
 
 fun main(args: Array<String>) {
 //    val scan = Scanner(System.`in`)
@@ -87,26 +123,34 @@ fun main(args: Array<String>) {
 //    )
 
     val inputs = listOf(
-        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-        "bbcaadacaacbdddcdbddaddabcccdaaadcadcbddadababdaaabcccdcdaacadcababbabbdbacabbdcbbbbbddacdbbcdddbaaa",
-        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-        "cacccbbcaaccbaacbbbcaaaababcacbbababbaacabccccaaaacbcababcbaaaaaacbacbccabcabbaaacabccbabccabbabcbba",
-        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-        "bbcbacaabacacaaacbbcaabccacbaaaabbcaaaaaaaccaccabcacabbbbabbbbacaaccbabbccccaacccccabcabaacaabbcbaca",
-        "cbaacdbaadbabbdbbaabddbdabbbccbdaccdbbdacdcabdbacbcadbbbbacbdabddcaccbbacbcadcdcabaabdbaacdccbbabbbc",
-        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-        "babacaccaaabaaaaaaaccaaaccaaccabcbbbabccbbabababccaabcccacccaaabaccbccccbaacbcaacbcaaaaaaabacbcbbbcc",
-        "bcbabbaccacbacaacbbaccbcbccbaaaabbbcaccaacaccbabcbabccacbaabbaaaabbbcbbbbbaababacacbcaabbcbcbcabbaba"
+        "ifailuhkqqhucpoltgtyovarjsnrbfpvmupwjjjfiwwhrlkpekxxnebfrwibylcvkfealgonjkzwlyfhhkefuvgndgdnbelgruel",
+        "gffryqktmwocejbxfidpjfgrrkpowoxwggxaknmltjcpazgtnakcfcogzatyskqjyorcftwxjrtgayvllutrjxpbzggjxbmxpnde",
+        "mqmtjwxaaaxklheghvqcyhaaegtlyntxmoluqlzvuzgkwhkkfpwarkckansgabfclzgnumdrojexnrdunivxqjzfbzsodycnsnmw",
+        "ofeqjnqnxwidhbuxxhfwargwkikjqwyghpsygjxyrarcoacwnhxyqlrviikfuiuotifznqmzpjrxycnqktkryutpqvbgbgthfges",
+        "zjekimenscyiamnwlpxytkndjsygifmqlqibxxqlauxamfviftquntvkwppxrzuncyenacfivtigvfsadtlytzymuwvpntngkyhw",
     )
+
+//    val inputs = listOf(
+//        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+//        "bbcaadacaacbdddcdbddaddabcccdaaadcadcbddadababdaaabcccdcdaacadcababbabbdbacabbdcbbbbbddacdbbcdddbaaa",
+//        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+//        "cacccbbcaaccbaacbbbcaaaababcacbbababbaacabccccaaaacbcababcbaaaaaacbacbccabcabbaaacabccbabccabbabcbba",
+//        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+//        "bbcbacaabacacaaacbbcaabccacbaaaabbcaaaaaaaccaccabcacabbbbabbbbacaaccbabbccccaacccccabcabaacaabbcbaca",
+//        "cbaacdbaadbabbdbbaabddbdabbbccbdaccdbbdacdcabdbacbcadbbbbacbdabddcaccbbacbcadcdcabaabdbaacdccbbabbbc",
+//        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+//        "babacaccaaabaaaaaaaccaaaccaaccabcbbbabccbbabababccaabcccacccaaabaccbccccbaacbcaacbcaaaaaaabacbcbbbcc",
+//        "bcbabbaccacbacaacbbaccbcbccbaaaabbbcaccaacaccbabcbabccacbaabbaaaabbbcbbbbbaababacacbcaabbcbcbcabbaba"
+//    )
 
 //    val inputs = listOf("ifailuhkqq")
 
     val start = Date().time
     inputs.forEach {
         val init = Date().time
-        println(it)
+//        println(it)
         println(sherlockAndAnagrams(it))
-        println("tempo - ${Date().time - init}")
+//        println("tempo - ${Date().time - init}")
     }
     println("time = ${Date().time - start}")
 }
