@@ -28,7 +28,7 @@ fun CharArray.validExpression(): Boolean {
     if (this.size % 2 != 0) return false
 
     //--- retorna o índice do carácter fechando a extremidade e a expressão entre a abertura e fechamento
-    val (indexEnding, subExpression) = this.findIndexOfEndingExp(0)
+    val (indexEnding, subExpression) = this.findIndexOfEndingExp()
 
     //--- caso não encontrou fechamento expressão é inválida
     if (indexEnding == -1) return false
@@ -44,17 +44,13 @@ fun CharArray.validExpression(): Boolean {
 
 fun CharArray.lastIndex() = size - 1
 
-fun Char.isOpening() = "({[".contains(this)
 
-fun CharArray.findIndexOfEndingExp(indexStart: Int): Pair<Int, CharArray> {
-    val currentChar = this[indexStart]
+fun CharArray.findIndexOfEndingExp(): Pair<Int, CharArray> {
+    val currentChar = this[0]
     val defaultReturn = Pair(-1, charArrayOf())
 
-    //--- Se o primeiro carácter é de fechamento e não é o fechamento do que está em análise a expressão é inválida
-    if (!currentChar.isOpening() && currentChar != this[indexStart]) return defaultReturn
-
     var contSameOpenChar = 0
-    for (i in indexStart + 1 until this.size) {
+    for (i in 1 until this.size) {
         val chr = this[i]
 
         //--- repetindo o carácter de abertura
@@ -63,7 +59,7 @@ fun CharArray.findIndexOfEndingExp(indexStart: Int): Pair<Int, CharArray> {
         if (chr == pairs[currentChar]) {
             //--- se não foi aberto mais de uma vez e encontramos o par, foi encontrado onde esta sendo fechado
             if (contSameOpenChar == 0) {
-                return Pair(i, this.copyOfRange(indexStart + 1, i))
+                return Pair(i, this.copyOfRange(1, i))
             }
 
             //--- encontrou um fechamento do mesmo carácter
