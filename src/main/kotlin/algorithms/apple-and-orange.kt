@@ -21,7 +21,7 @@ fun countApplesAndOranges(s: Int, t: Int, a: Int, b: Int, apples: Array<Int>, or
 *  b = apple tree point
 * */
 
-fun main(args: Array<String>) {
+fun main() {
 //    val scan = Scanner(System.`in`)
 //
 //    val st = scan.nextLine().split(" ")

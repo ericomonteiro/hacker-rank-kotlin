@@ -22,7 +22,7 @@ fun runningMedian(a: Array<Int>): Array<Double> {
     return resultList
 }
 
-fun main(args: Array<String>) {
+fun main() {
 //    val scan = Scanner(System.`in`)
 //
 //    val aCount = scan.nextLine().trim().toInt()

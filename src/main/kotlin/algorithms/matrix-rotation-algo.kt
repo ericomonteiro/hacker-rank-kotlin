@@ -76,7 +76,7 @@ fun matrixRotation(matrix: Array<Array<Int>>, r: Int): Unit {
     matrix.forEach { println(it.joinToString(" ")) }
 }
 
-fun main(args: Array<String>) {
+fun main() {
 //    val mnr = readLine()!!.trimEnd().split(" ")
 //
 //    val m = mnr[0].toInt()

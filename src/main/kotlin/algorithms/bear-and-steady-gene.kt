@@ -58,7 +58,7 @@ fun steadyGene(s: String): Int {
     return s.length
 }
 
-fun main(args: Array<String>) {
+fun main() {
 //    val scan = Scanner(System.`in`)
 //    val n = scan.nextLine().trim().toInt()
 //    val gene = scan.nextLine()

@@ -36,7 +36,7 @@ fun String.existsAny(query: CharArray): Boolean {
     return false
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val scan = Scanner(System.`in`)
 
 //    val n = scan.nextLine().trim().toInt()

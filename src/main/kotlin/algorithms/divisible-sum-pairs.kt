@@ -20,7 +20,7 @@ fun divisibleSumPairs(n: Int, k: Int, ar: Array<Int>): Int {
     return result
 }
 
-fun main(args: Array<String>) {
+fun main() {
 //    val first_multiple_input = readLine()!!.trimEnd().split(" ")
 //
 //    val n = first_multiple_input[0].toInt()

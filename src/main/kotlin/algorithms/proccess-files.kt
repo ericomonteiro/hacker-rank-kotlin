@@ -26,7 +26,7 @@ fun minTime(files: Array<Int>, numCores: Int, limit: Int): Long {
     return time
 }
 
-fun main(args: Array<String>) {
+fun main() {
 //    val filesCount = readLine()!!.trim().toInt()
 //
 //    val files = Array<Int>(filesCount, { 0 })

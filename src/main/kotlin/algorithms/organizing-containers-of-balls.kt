@@ -18,7 +18,7 @@ fun organizingContainers(container: Array<Array<Int>>): String {
     return if (quantityByType == containerSize) "Possible" else "Impossible"
 }
 
-fun main(args: Array<String>) {
+fun main() {
 //    val scan = Scanner(System.`in`)
 //
 //    val q = scan.nextLine().trim().toInt()

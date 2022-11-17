@@ -28,7 +28,7 @@ fun arrayManipulation(n: Int, queries: Array<Array<Int>>): Long {
     return max
 }
 
-fun main(args: Array<String>) {
+fun main() {
 //    val scan = Scanner(System.`in`)
 //
 //    val nm = scan.nextLine().split(" ")

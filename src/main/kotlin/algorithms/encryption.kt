@@ -45,7 +45,7 @@ fun encryption(s: String): String {
 
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val s = "if man was meant to stay on the ground god would have given us roots"
 
     val result = encryption(s)

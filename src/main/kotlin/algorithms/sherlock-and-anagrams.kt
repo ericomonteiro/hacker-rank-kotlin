@@ -96,7 +96,7 @@ fun anagramSecondCheck(s1: CharArray, s2: CharArray): Boolean {
 fun anagramThirdCheck(s1: CharArray, s2: CharArray) = (s1.sorted() == s2.sorted())
 
 
-fun main(args: Array<String>) {
+fun main() {
 //    val scan = Scanner(System.`in`)
 //
 //    val q = scan.nextLine().trim().toInt()

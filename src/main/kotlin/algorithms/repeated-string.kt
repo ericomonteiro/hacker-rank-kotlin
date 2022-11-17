@@ -12,7 +12,7 @@ fun repeatedString(s: String, n: Long): Long {
 }
 fun String.countA() = this.filter { it == 'a' }.length
 
-fun main(args: Array<String>) {
+fun main() {
     val scan = Scanner(System.`in`)
 
 //    val s = scan.nextLine()

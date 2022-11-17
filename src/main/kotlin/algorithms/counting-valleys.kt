@@ -15,7 +15,7 @@ fun countingValleys(steps: Int, path: String): Int {
     return valleys
 }
 
-fun main(args: Array<String>) {
+fun main() {
 //    val steps = readLine()!!.trim().toInt()
 //    val path = readLine()!!
 

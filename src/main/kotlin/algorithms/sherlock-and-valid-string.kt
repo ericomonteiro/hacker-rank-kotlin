@@ -24,7 +24,7 @@ fun isValid(s: String): String {
     return "YES"
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val scan = Scanner(System.`in`)
 
     val s = scan.nextLine()

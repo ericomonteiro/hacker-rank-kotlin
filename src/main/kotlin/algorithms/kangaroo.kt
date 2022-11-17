@@ -25,7 +25,7 @@ fun kangaroo(x1: Int, v1: Int, x2: Int, v2: Int): String {
     return "YES"
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val scan = Scanner(System.`in`)
 
 //    val x1V1X2V2 = scan.nextLine().split(" ")

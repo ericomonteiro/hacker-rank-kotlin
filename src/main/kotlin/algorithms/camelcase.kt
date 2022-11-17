@@ -6,7 +6,7 @@ import java.util.Scanner
 fun camelcase(s: String) = s.toCharArray().filter { it.isUpperCase() }.count() + 1
 
 
-fun main(args: Array<String>) {
+fun main() {
     val scan = Scanner(System.`in`)
 
     val s = scan.nextLine()

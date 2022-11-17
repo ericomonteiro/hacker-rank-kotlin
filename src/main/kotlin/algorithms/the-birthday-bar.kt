@@ -20,7 +20,7 @@ fun birthday(s: Array<Int>, d: Int, m: Int): Int {
     return result
 }
 
-fun main(args: Array<String>) {
+fun main() {
 //    val n = readLine()!!.trim().toInt()
 //
 //    val s = readLine()!!.trimEnd().split(" ").map{ it.toInt() }.toTypedArray()

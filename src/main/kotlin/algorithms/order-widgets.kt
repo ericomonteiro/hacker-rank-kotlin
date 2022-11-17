@@ -15,7 +15,7 @@ fun filledOrders(order: Array<Int>, k: Int): Int {
     return ordersFulfilled
 }
 
-fun main(args: Array<String>) {
+fun main() {
 //    val orderCount = readLine()!!.trim().toInt()
 
 //    val order = Array<Int>(orderCount, { 0 })

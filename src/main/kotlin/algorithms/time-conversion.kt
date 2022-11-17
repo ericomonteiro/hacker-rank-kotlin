@@ -13,7 +13,7 @@ fun timeConversion(s: String): String {
     return toFormat.format(date)
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val scan = Scanner(System.`in`)
 
     val s = "01:01:00PM" //scan.nextLine()

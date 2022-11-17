@@ -55,7 +55,7 @@ fun getTotalX(a: Array<Int>, b: Array<Int>): Int {
     return result.size
 }
 
-fun main(args: Array<String>) {
+fun main() {
 //    val first_multiple_input = readLine()!!.trimEnd().split(" ")
 //
 //    val n = first_multiple_input[0].toInt()

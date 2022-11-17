@@ -53,7 +53,7 @@ fun timeInWords(h: Int, m: Int): String {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val scan = Scanner(System.`in`)
 
 //    val h = scan.nextLine().trim().toInt()

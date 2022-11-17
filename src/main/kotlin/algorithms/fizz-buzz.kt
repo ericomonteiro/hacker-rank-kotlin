@@ -21,7 +21,7 @@ fun fizzBuzz(n: Int): Unit {
 
 }
 
-fun main(args: Array<String>) {
+fun main() {
 //    val n = readLine()!!.trim().toInt()
 
     fizzBuzz(15)

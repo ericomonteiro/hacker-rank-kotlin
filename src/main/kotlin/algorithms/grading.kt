@@ -11,7 +11,7 @@ fun gradingStudents(grades: Array<Int>): Array<Int> {
     }.toTypedArray()
 }
 
-fun main(args: Array<String>) {
+fun main() {
 //    val gradesCount = readLine()!!.trim().toInt()
 //
 //    val grades = Array<Int>(gradesCount, { 0 })
