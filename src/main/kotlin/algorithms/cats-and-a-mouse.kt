@@ -16,9 +16,9 @@ fun catAndMouse(catA: Int, catB: Int, mouse: Int): String {
 
 fun main(args: Array<String>) {
 
-    val x = xyz[0].trim().toInt()
-    val y = xyz[1].trim().toInt()
-    val z = xyz[2].trim().toInt()
+    val x = 1
+    val y = 3
+    val z = 2
 
     val result = catAndMouse(x, y, z)
 
